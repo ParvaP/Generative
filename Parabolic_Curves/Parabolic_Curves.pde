@@ -47,11 +47,12 @@ void draw (){
     line (quadWidth,i*quadHeight/n,(i+1)*quadWidth/n + quadWidth,quadHeight);
   }
   
-  
+  //bottonright corner
   for (int i = 0; i < n ; i++){
     line (quadWidth,width-i*quadHeight/n,(i+1)*quadWidth/n + quadWidth,quadHeight);
   }
   
+  //bottomleft corner
   for (int i = 0; i < n ; i++){
     line (quadWidth,width-i*quadHeight/n,(n-i-1)*quadWidth/n,quadHeight);
   }
