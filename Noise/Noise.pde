@@ -1,0 +1,3 @@
+void start(){}
+
+void draw(){}
