@@ -1,10 +1,9 @@
 ArrayList<float[]> li = new ArrayList<float[]>(); //This is the list that will hold all the information about each ball
-
 /*
 [x,y,r,s,a];
 x,y = x and y of the middle of the circle
 r = radius of the circle
-s = speed of the next circle
+s = speed of the circle
 a = the number used to generate the position of the next circle
 */
 
@@ -16,18 +15,16 @@ float maxRad = 60;
 float minSpeed = 0.01;
 float maxSpeed = 0.1;
 
-
+//Stores information about a  circle
 float x;
 float y;
 float r;
 float s;
 float a;
 
+float distanceToWall = width/2; //May use this later to get a random n
 
-
-float distanceToWall = width/2; //May use this later
-
-int n = 10; //number of balls
+int n = 15; //number of balls
 
 void setup() {
     size (900,900); //width,height
@@ -52,8 +49,12 @@ void setup() {
         A = [4];
         */
 
+        //x[i] = r[i-1]*cos(a[i-1]) + x[i-1];
         x = li.get(li.size()-1)[2]*cos(li.get(li.size()-1)[4]) + li.get(li.size()-1)[0];
+
+        //y[i] = r[i-1]*sin(a[i-1]) + y[i-1];
         y = li.get(li.size()-1)[2]*sin(li.get(li.size()-1)[4]) + li.get(li.size()-1)[1];
+
         r = randRadius();
         s = randSpeed();
         a = randPos();
@@ -74,25 +75,23 @@ void draw() {
     */
 
     for (int i = 0; i < li.size(); i++){
+        //circle(x[i],y[i],r[i]);
         circle(li.get(i)[0],li.get(i)[1],li.get(i)[2]);
     }
 
     for (int i = 1; i < li.size(); i++){
+        //a[i-1] = a[i-1] + s[i];
         li.get(i-1)[4] = li.get(i-1)[4] + li.get(i)[3];
 
+        //x[i] = r[i-1]*cos(a[i-1]) + x[i-1];
         li.get(i)[0] = li.get(i-1)[2]*cos(li.get(i-1)[4]) + li.get(i-1)[0];
+
+        //y[i] = r[i-1]*sin(a[i-1]) + y[i-1];
         li.get(i)[1] = li.get(i-1)[2]*sin(li.get(i-1)[4]) + li.get(i-1)[1];
 
+        //line(x[i-1],y[i-1],x[i],y[i]);
         line(li.get(i-1)[0],li.get(i-1)[1],li.get(i)[0],li.get(i)[1]);
     }
-
-    /*x2 = r1*cos(a1) + x1;
-    y2 = r1*sin(a1) + y1;
-    a1= a1+ 0.1;
-
-    circle (x1,y1,r1);
-    circle (x2,y2,r2);
-    line (x1,y1,x2,y2);*/
 }
 
 float randRadius (){
