@@ -1,15 +1,11 @@
 # Generative Art
-
 This is some generative art I've made in Processing.   
-
+  
 ## Breathe (Parabolic Curves)
 <img src="./Parabolic_Curves/Breathe.gif" width="900" height="900" />  
   
 ## Jewel
-<img src="./Jewel/Jewel.gif" width="900" height="900" />  
-  
-## Pattern Maker (Balls and Sticks)
-<img src="./BallsAndSticks/Pattern_Maker.gif" width="900" height="900" />  
+<img src="./Diamond/Diamond.gif" width="900" height="900" />  
   
 ## Pattern Maker (Balls and Sticks)
 <img src="./BallsAndSticks/Pattern_Maker.gif" width="900" height="900" />  
