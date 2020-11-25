@@ -6,7 +6,9 @@ float y1;
 float y2;
 
 float a = 0; 
-float scale = 50;
+float scale1 = 100;
+
+float mS = 5;
 
 void setup(){
     size (900,900);
@@ -16,21 +18,34 @@ void setup(){
 
     x1 = 0;
     x2 = 0;
-    y1 = 0;
+    y1 = 
     y2 = 0;
 }
 
 void draw(){
-    line(x1,y1+sin(a)*scale,x2,y2+cos(a)*scale);
-    x1 += 10;
-    x2 += 10;
+    p1();
+    p2();
+    line(x1,y1,x2,y2);
+    x1 += mS;
+    x2 += mS;
 
     if (x1 >= 900){
         y1 += 110;
         y2 += 110;
         x1 = 0;
         x2 = 0;
+        clear();
     }
 
     a += 0.1;
+}
+
+void p1(){
+  x1 = x1;
+  y1 = height;
+}
+
+void p2(){
+  x2 = x2;
+  y2 = (height-300) - noise (a + 10)*scale1;
 }
