@@ -40,11 +40,13 @@ void draw(){
     a += 0.1;
 }
 
+//Generate poition of first point
 void p1(){
   x1 = x1;
   y1 = height;
 }
 
+//Generate position of second point
 void p2(){
   x2 = x2;
   y2 = (height-300) - noise (a + 10)*scale1;
