@@ -5,7 +5,7 @@ This is some generative art I've made in Processing.
 <img src="./Parabolic_Curves/Breathe.gif" width="900" height="900" />  
   
 ## Levels of Noise (Noise)
-<img src="./Parabolic_Curves/Breathe.gif" width="900" height="920" />  
+<img src="./Noise/output/out-2.png" width="900" height="920" />  
   
 ## Jewel
 <img src="./Diamond/Diamond.gif" width="900" height="900" />  
