@@ -4,6 +4,9 @@ This is some generative art I've made in Processing.
 ## Breathe (Parabolic Curves)
 <img src="./Parabolic_Curves/Breathe.gif" width="900" height="900" />  
   
+## Levels of Noise (Noise)
+<img src="./Parabolic_Curves/Breathe.gif" width="900" height="920" />  
+  
 ## Jewel
 <img src="./Diamond/Diamond.gif" width="900" height="900" />  
   
