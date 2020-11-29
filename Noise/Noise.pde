@@ -1,5 +1,11 @@
 int n = 0; //Number of layers drawn
 
+int col = 255; //color of lines
+int colChange = 20; //amount the color changes per change
+
+float alph = 255; //alpha of lines
+float alphChange = 20; //amount the alpha changes per change
+
 float x;
 float y;
 
@@ -13,14 +19,14 @@ float mS = 5; //speed the simulaton moves at on x and also the seperation betwee
 float drop = 150;
 
 float aSRate = 1.5; //how much aS is divided by each time
-float dropRate = 1.1; //how much drop is divided by each time
+float dropRate = 1.2; //how much drop is divided by each time
 float scaleRate = 1.1; //how much scale is divided by each time
 
 void setup(){
     size (900,920);
     background(0);
-    stroke(255);
-    strokeWeight(2);
+    stroke(col,alph);
+    strokeWeight(3);
     x = 0;
     y = 200;
 }
@@ -34,9 +40,12 @@ void draw(){
       drop = drop/dropRate;
       scale = scale/scaleRate;
       n++;
+      col -= colChange;
+      alph -= alphChange;
+      stroke(col,alph);
     }
 
-    if (n == 7){
+    if (n == 10){
       saveFrame("output/out-3.png");
     }
 
