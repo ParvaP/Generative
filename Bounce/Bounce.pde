@@ -21,7 +21,26 @@ void setup(){
   for (int i = 0; i < numObs; i++){}
 }
 
-void draw(){}
+void draw(){
+    drawBalls();
+}
+
+void drawBalls(){
+    for (int i = 0; i < balls.size(); i++){
+        Ball b = balls.get(i);
+        circle(b.x,b.y,b.r);
+    }
+}
+
+void moveBalls(){
+    for (int i = 0; i < balls.size(); i++){
+        
+    }
+}
+
+void circle(float x, float y, float r) {
+    ellipse(x, y, r*2, r*2);
+}
 
 float[] randBallPos (){
     float[] pos = new float[2];
