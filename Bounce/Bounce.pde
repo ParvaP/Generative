@@ -2,7 +2,7 @@ ArrayList<Obstacle> obs = new ArrayList<Obstacle>(); //contains the obstacles
 ArrayList<Ball> balls = new ArrayList<Ball>(); //contains the balls
 
 float speed = 1; //speed of ball
-float rad = 5; //radius of ball
+float rad = 2; //radius of ball
 
 int numBalls = 1; //number of balls
 int numObs = 0; //number of obstacles
@@ -15,7 +15,7 @@ void setup(){
   float[] ballPos = randBallPos();
 
   for (int i = 0; i < numBalls; i++){
-      balls.add(new Ball(ballPos[0],ballPos[1],randBool(),randBool()));
+      balls.add(new Ball(ballPos[0],ballPos[1],randDir(),randDir()));
   }
 
   for (int i = 0; i < numObs; i++){}
@@ -23,6 +23,7 @@ void setup(){
 
 void draw(){
     drawBalls();
+    moveBalls();
 }
 
 void drawBalls(){
@@ -34,12 +35,19 @@ void drawBalls(){
 
 void moveBalls(){
     for (int i = 0; i < balls.size(); i++){
+        Ball b = balls.get(i);
         
+        b.move(b.dX*speed,b.dY*speed);
     }
 }
 
 void circle(float x, float y, float r) {
     ellipse(x, y, r*2, r*2);
+}
+
+void collision (){
+    collisionX();
+    collisionY();
 }
 
 float[] randBallPos (){
@@ -51,8 +59,8 @@ float[] randBallPos (){
     return pos;
 }
 
-boolean randBool() {
-  return random(1) > 0.5;
+float randDir() {
+    return random(1) > 0.5 ? 1 : -1;
 }
 
 class Obstacle {
@@ -74,14 +82,19 @@ class Ball {
     float x; //x position
     float y; //y position
     float r = rad; //radius
-    boolean right; //going right
-    boolean down; //going down
+    float dX; //movement direction in x
+    float dY; //movement direction in y
 
     //Constructor
-    Ball (float x,float y,boolean right,boolean down){
+    Ball (float x,float y,float dX,float dY){
         this.x = x;
         this.y = y;
-        this.right = right;
-        this.down = down;
+        this.dX = dX;
+        this.dY = dY;
+    }
+
+    void move(float x,float y){
+        this.x += x;
+        this.y += y;
     }
 }
