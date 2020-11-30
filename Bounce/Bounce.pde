@@ -1,16 +1,17 @@
 ArrayList<Obstacle> obs = new ArrayList<Obstacle>(); //contains the obstacles
 ArrayList<Ball> balls = new ArrayList<Ball>(); //contains the balls
 
-float speed = 1; //speed of ball
-float rad = 2; //radius of ball
+float speed = 15; //speed of ball
+float rad = 5; //radius of ball
 
 int numBalls = 1; //number of balls
 int numObs = 0; //number of obstacles
 
 void setup(){
-  size (900, 900); //width,height
+  size (1200, 900); //width,height
   background (0); //changes the backgroud to black
   stroke (255); //changes the color of the lines to white
+  frameRate(1000);
 
   float[] ballPos = randBallPos();
 
@@ -23,7 +24,9 @@ void setup(){
 
 void draw(){
     drawBalls();
+    collision();
     moveBalls();
+    println(frameRate);
 }
 
 void drawBalls(){
@@ -45,12 +48,30 @@ void circle(float x, float y, float r) {
     ellipse(x, y, r*2, r*2);
 }
 
-void collision (){
+void collision(){
     collisionX();
     collisionY();
 }
 
-float[] randBallPos (){
+void collisionX(){
+    for (int i = 0; i < balls.size(); i++){
+        Ball b = balls.get(i);
+        if (b.x+b.dX*speed+b.r > width || b.x+b.dX*speed-b.r < 0){
+            b.flipX();
+        }
+    }
+}
+
+void collisionY(){
+   for (int i = 0; i < balls.size(); i++){
+        Ball b = balls.get(i);
+        if (b.y+b.dY*speed+b.r > height || b.y+b.dY*speed-b.r < 0){
+            b.flipY();
+        }
+    } 
+}
+
+float[] randBallPos(){
     float[] pos = new float[2];
 
     pos[0] = random(rad, width-rad); //x
@@ -96,5 +117,13 @@ class Ball {
     void move(float x,float y){
         this.x += x;
         this.y += y;
+    }
+
+    void flipX (){
+        dX = dX*-1;
+    }
+
+    void flipY (){
+        dY = dY*-1;
     }
 }
