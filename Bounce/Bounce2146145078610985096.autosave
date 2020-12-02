@@ -17,21 +17,21 @@ void setup(){
   size (1200, 900); //width,height
   background (0); //changes the backgroud to black
   stroke (255); //changes the color of the lines to white
-  frameRate(1000); //basically uncapped
+  //frameRate(1000); //basically uncapped
 
   float[] ballPos;
   float[] obsPos;
+
+  for (int i = 0; i < numBalls; i++){
+      ballPos = randBallPos();
+      balls.add(new Ball(ballPos[0],ballPos[1],randDir(),randDir()));
+  }
 
   for (int i = 0; i < numObs; i++){
       float wid = random(minW,maxW);
       float hei = random(minH,maxH);
       obsPos  = randObsPos(wid,hei);
       obs.add(new Obstacle(obsPos[0],obsPos[1],wid,hei));
-  }
-
-  for (int i = 0; i < numBalls; i++){
-      ballPos = randBallPos();
-      balls.add(new Ball(ballPos[0],ballPos[1],randDir(),randDir()));
   }
 
   drawObstaacles();
@@ -89,15 +89,22 @@ void collision(){
         //collision with obstacles
         for (int ii = 0; ii < obs.size(); ii++){
             Obstacle o = obs.get(ii);
-            if (o.inObstacle(b.x+b.dX*dist,b.y)){
+            if (o.inObstacle(b.x+b.dX*dist)){
                 b.dX = b.dX*-1;
             }
 
-            if (o.inObstacle(b.x,b.y+b.dY*dist)){
+            if (o.inObstacle(b.y+b.dY*dist)){
                 b.dY = b.dY*-1;
             }
         }
     }
+}
+
+void collisionX(){
+    
+}
+
+void collisionY(){
 }
 
 float[] randBallPos(){
@@ -105,10 +112,6 @@ float[] randBallPos(){
 
     pos[0] = random(rad, width-rad); //x
     pos[1] = random(rad, height-rad); //y
-
-    boolean valid = false;
-
-    //stops a ball from spawning in an obstacle
 
     return pos;
 }
@@ -140,8 +143,8 @@ class Obstacle {
         this.h = h;
     }
 
-    boolean inObstacle (float bX, float bY){
-        return bX - rad > x && bX + rad < x + w && bY - rad > y && bY + rad < y + h;
+    inObstacle (Ball b){
+        return b.x - b.r > o.x && b.x + b.r < o.x + o.w && b.y - b.r > o.y && b.y + b.r < o.y + o.h;
     }
 }
 
