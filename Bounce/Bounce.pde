@@ -4,7 +4,7 @@ ArrayList<Ball> balls = new ArrayList<Ball>(); //contains the balls
 float dist = 5; //distance between frame
 float rad = 5; //radius of ball
 
-int numBalls = 1; //number of balls
+int numBalls = 2; //number of balls
 int numObs = 5; //number of obstacles
 
 float minW = 100; //min width of an obstacle
@@ -110,11 +110,14 @@ float[] randBallPos() {
 
   //stops a ball from spawning in an obstacle
   while (!valid) {
+    valid = true;
     pos[0] = random(rad, width-rad); //x
     pos[1] = random(rad, height-rad); //y
     for (int i = 0; i < obs.size(); i ++) {
       Obstacle o = obs.get(i);
-      valid = !o.inObstacle(pos[0],pos[1]);
+      if (o.inObstacle(pos[0],pos[1])){
+          valid = false;
+      }
     }
   }
   return pos;
