@@ -4,7 +4,7 @@ ArrayList<Ball> balls = new ArrayList<Ball>(); //contains the balls
 float dist = 5; //distance between frame
 float rad = 5; //radius of ball
 
-int numBalls = 2; //number of balls
+int numBalls = 5; //number of balls
 int numObs = 5; //number of obstacles
 
 float minW = 100; //min width of an obstacle

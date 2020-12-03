@@ -1,5 +1,5 @@
 # Generative Art
-This is some generative art I've made in Processing.   
+This is some generative art I've made in Processing and P5js.   
   
 ## Breathe (Parabolic Curves)
 <img src="./Parabolic_Curves/Breathe.gif" width="900" height="900" />  
