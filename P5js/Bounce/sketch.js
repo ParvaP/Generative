@@ -16,7 +16,6 @@ var maxW = 400; //max width of an obstacle
 var maxH = 300; //max height of an obstacle
 
 var count = 0;
-var ssDelay = 6;
 
 class Obstacle{
   constructor(x,y,w,h){
@@ -47,6 +46,11 @@ class Ball{
     this.x += x;
     this.y += y;
   }
+}
+
+function ss (){
+  saveCanvas(myCanvas,"screenshot-"+count+".png");
+  count ++;
 }
 
 function drawBalls() {
@@ -141,8 +145,11 @@ function randDir() {
 function setup() {
   myCanvas = createCanvas(1200, 900);
   //frameRate(10);
-  numBalls = int(random(1,maxBalls+1)); //number of balls
-  numObs = int(random(1,maxObs+1)); //number of obstacles
+  //numBalls = int(random(1,maxBalls+1)); //number of balls
+  //numObs = int(random(1,maxObs+1)); //number of obstacles
+
+  numBalls = 5;
+  numObs = 5;
 
   ballPos = new Array();
   obsPos = new Array();
@@ -163,17 +170,10 @@ function setup() {
   background(0);
 }
 
-function screenShot (){
-  if (count%delay == 0){
-    saveCanvas(mycanvas,"screenshot-"+count,"png");
-  }
-  count ++;
-}
-
 function draw() {
   drawObstaacles();
   drawBalls();
   collision();
   moveBalls();
-  //screentShot();
+  //ss();
 }
