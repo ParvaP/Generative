@@ -4,8 +4,11 @@ var balls = new Array(); //contains the balls
 var distan = 1; //distance between frame
 var rad = 5; //radius of ball
 
-var numBalls = 5; //number of balls
-var numObs = 5; //number of obstacles
+var maxBalls = 5; //max number of balls
+var maxObs = 5; //max number of obstacles
+
+var numBalls; //number of balls
+var numObs; //number of obstacles
 
 var minW = 100; //min width of an obstacle
 var minH = 100; //min height of an obstacle
@@ -138,6 +141,8 @@ function randDir() {
 function setup() {
   myCanvas = createCanvas(1200, 900);
   //frameRate(10);
+  numBalls = int(random(1,maxBalls+1)); //number of balls
+  numObs = int(random(1,maxObs+1)); //number of obstacles
 
   ballPos = new Array();
   obsPos = new Array();
@@ -153,12 +158,9 @@ function setup() {
     ballPos = randBallPos();
     balls.push(new Ball(ballPos[0], ballPos[1], randDir(), randDir()));
   }
+
+
   background(0);
-  fill(0,0,255);
-  stroke(0,0,255);
-  drawObstaacles();
-  stroke (255);
-  fill(255);
 }
 
 function screenShot (){
