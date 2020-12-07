@@ -49,7 +49,7 @@ class Ball{
 }
 
 function ss (){
-  saveCanvas(myCanvas,"screenshot-"+count+".png");
+  save(myCanvas,"screenshot-"+count+".png");
   count ++;
 }
 
