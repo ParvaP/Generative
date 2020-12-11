@@ -33,11 +33,23 @@ void setup(){
 
 
     //Sphere Drawer
-    sX1 = 200;
-    sY1 = 200;
-    sX2 = 400;
-    sY2 = 400;
-    slow1 = slow2 / 20;
+    //sX1 = 200;
+    //sY1 = 200;
+    //sX2 = 400;
+    //sY2 = 400;
+    //slow1 = slow2 / 20;
+    
+    // Two Circles
+    // This code draws slow2-1 curve things
+    sX1 = 400;
+    sY1 = 400;
+    sX2 = 200;
+    sY2 = 200;
+    slow1 = 1;
+    slow2 = 21;
+
+    println("Slow1 = " + slow1);
+    println("Slow2 = " + slow2);
 
     for (int i = 0; i < n; i++){
         float[] p1 = p1();
@@ -53,7 +65,7 @@ void draw(){
     //saveFrame("output/mov-"+nf(count,5)+".png");
     count++;
 
-    println(count);
+    //println(count);
 }
 
 float[] p1 (){
