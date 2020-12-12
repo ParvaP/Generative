@@ -4,9 +4,6 @@ FLine[] lines = new FLine[n];
 float a1 = 0; //num to generate first point
 float a2 = 0; //num to gernerate second point
 
-float iD1 = 3; //increment d1
-float iD2 = 3; //increment d2
-
 float s1 = 200; //scale 1
 float s2 = 400; //scale 2
 
@@ -25,7 +22,13 @@ float c1Y;
 float c2X;
 float c2Y;
 
+float iD1() {
+  return 3 * sin(2*PI*frameCount/1200);
+}
 
+float iD2() {
+  return 3 * sin(2*PI*frameCount/1200);
+}
 
 void setup() {
   size (900, 900); //width,height
@@ -88,7 +91,7 @@ float[] p1 () {
   p1[0] = cos(a1/slow1)*sX1 + c1X;
   p1[1] = sin(a1/slow1)*sY1 + c1Y;
 
-  a1 += iD1;
+  a1 += iD1();
 
   return p1;
 }
@@ -99,7 +102,7 @@ float[] p2 () {
   p2[0] = -cos(a2/slow2)*sX2 + c2X;
   p2[1] = -sin(a2/slow2)*sY2 + c2Y;
 
-  a2 += iD2;
+  a2 += iD2();
 
   return p2;
 }
