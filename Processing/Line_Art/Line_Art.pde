@@ -23,11 +23,13 @@ float c2X;
 float c2Y;
 
 float iD1() {
-  return 3 * sin(2*PI*frameCount/1200);
+  //return 3 * sin(2*PI*frameCount/1200);
+  return 3;
 }
 
 float iD2() {
-  return 3 * sin(2*PI*frameCount/1200);
+  //return 3 * sin(2*PI*frameCount/1200);
+  return 3;
 }
 
 void setup() {
@@ -49,11 +51,11 @@ void setup() {
   //If slows are slightly different it makes spirals
 
   //Sphere Drawer
-  //sX1 = 200;
-  //sY1 = 200;
-  //sX2 = 400;
-  //sY2 = 400;
-  //slow1 = slow2 / 20;
+  sX1 = 200;
+  sY1 = 200;
+  sX2 = 400;
+  sY2 = 400;
+  slow1 = slow2 / 20;
 
   // Two Circles
   // This code draws slow2/slow1 - 1 curve things
