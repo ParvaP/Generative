@@ -1,0 +1,7 @@
+boolean[][] board = new board[10][10];
+
+void setup(){
+    size (1200, 900);
+    background (0);
+}
+void draw(){}
