@@ -86,12 +86,6 @@ void moveBall(){
     if (bX-(diam/2) > pX && bX+(diam/2) < pX+pW && bY+(diam/2) > pY && bY+(diam/2) < pY+diam){
         dY = dY*-1;
     }
-    /*
-    if (bY-(diam/2) > pY && bY+(diam/2) < pY+pH){
-        dY = dY*-1;
-    }
-    */
-    
 }
 
 //initializes the board to 1
