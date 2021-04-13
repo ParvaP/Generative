@@ -6,7 +6,10 @@ This is some generative art I've made in Processing and P5js.
   
 ## Sphere (Line Art)
 <img src="./Processing/Line_Art/Sphere.png" width="900" height="900" />  
-
+  
+## Bad Modern Art (Packing)
+<img src="./Processing/Packing/created/mona_lisa/mona_lisa.gif" width="1200" height="1788" />
+  
 ## Levels of Noise (Noise)
 <img src="./Processing/Noise/Levels_of_Noise.png" width="900" height="920" />  
   
