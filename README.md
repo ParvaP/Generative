@@ -13,8 +13,5 @@ This is some generative art I've made in Processing and P5js.
 ## Pattern Maker (Balls and Sticks)
 <img src="./Processing/Balls_And_Sticks/Pattern_Maker.gif" width="900" height="900" />  
   
-## Chaos (Balls and Sticks)
-<img src="./Processing/Balls_And_Sticks/Chaos.gif" width="900" height="900" />  
-  
 ## Jewel
 <img src="./Processing/Diamond/Diamond.gif" width="900" height="900" />  
