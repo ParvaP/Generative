@@ -2,15 +2,15 @@ ArrayList<Circle> li = new ArrayList<Circle>();
 PImage img;
 
 void setup(){
-    img = loadImage("ref2.jpg");
-    size(1200,1788);
+    img = loadImage("ref.jpg");
+    size(960,640);
     background(0);
 }
 
 void draw(){
 
     int count = 0;
-    int t = 500;
+    int t = 50;
     int exit = 0;
 
     while (count<t){
@@ -22,6 +22,7 @@ void draw(){
         exit ++;
         if (exit > 2000){
           println("done");
+          //saveFrame("out/img######.png");
           noLoop();
           break;
         }
@@ -44,7 +45,7 @@ void draw(){
             }
         }
     }
-    saveFrame("out/img######.png");
+    //saveFrame("out/img######.png");
 }
 
 Circle createCircle(){

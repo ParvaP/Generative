@@ -1,7 +1,7 @@
 class Circle{
     float x;
     float y;
-    float r = 1;
+    float r = 2;
     color c;
 
     Circle(float x, float y, color c){
@@ -11,7 +11,7 @@ class Circle{
     }
 
     void grow(){
-        r = r+1;
+        r = r+.5;
     }
 
     boolean wall(){
